@@ -59,13 +59,13 @@ server.put("/customers/:id",function(req,res){
     const {name,site} = req.body;
 
     const index = customers.findIndex(item => item.id === id);
-    const status = index >= 0? 200 : 400 
+    const status = index >= 0? 200 : 400 ;
 
     if(index >= 0 ){
-        customers[index] = {id: parseInt(id), name, site}
+        customers[index] = {id: parseInt(id), name, site};
     }
 
-    res.status(status).json(customers[index])
+    res.status(status).json(customers[index]);
 });
 
 //===========================================================================================================
@@ -73,7 +73,15 @@ server.put("/customers/:id",function(req,res){
 //Delete ====================================================================================================
 
 server.delete("/customers",function(req,res){
+    const id = parseInt(req.params.id);
+    const index = customers.findIndex(item => item.id === id)
+    const status = index >=0? 200 : 400;
 
+    if (index >= 0){
+        customers.splice(index,1);
+    }
+
+    res.status(status).json
 });
 
 //===========================================================================================================
