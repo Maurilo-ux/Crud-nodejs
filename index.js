@@ -28,8 +28,10 @@ server.get("/customers/:id", function(req,res){
     // ParseInt devolve o id com tipo int ao inves de string.
     const id = parseInt(req.params.id);
     const customer = customers.find(item => item.id === id);
-    
     const status = customer ? 200 : 400;
+
+    console.debug("get :: /customers/:id", customer);
+
     res.status(status).json(customer)
 
 });
@@ -119,4 +121,4 @@ server.delete("/customers",function(req,res){
 
 //127.0.0.1
 //localhost
-server.listen(8084);
+server.listen(3000);
