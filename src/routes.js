@@ -1,9 +1,13 @@
 const Routes = require("express");
 const routes = new Routes();
 
-routes.get("/", function(req,res){
-    res.json({ message: "olá mundo"})
-})
+const customers = require("./app/controllers/CustomersControllers")
+
+routes.get("/customers", customers.index);
+routes.get("/customers/:id", customers.show);
+routes.get("/customers", customers.create);
+routes.get("/customers/:id", customers.update);
+routes.get("/customers/:id", customers.destroy);
 
 // export deve ser feito a todo momento
 module.exports = routes;
