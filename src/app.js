@@ -1,5 +1,5 @@
-const express = require('express');
-const routes = require('./routes')
+import express from 'express';
+import routes from './routes';
 
 // organizando as classe
 
@@ -25,4 +25,4 @@ class App{
 
 // instanciando e Impoetando
 const app = new App();
-module.exports = app.server;
+export default app.server;
